@@ -1,0 +1,124 @@
+body {
+    min-height: 2000px;
+    padding-top: 70px;
+    padding-bottom: 40px;
+    color: #5a5a5a;
+    
+}
+
+.navbar a {
+    color: lightgrey;
+}
+
+a.btn {
+    color: #fff;
+    background-color: #37674F;
+    border-color: #275D36; 
+}
+
+.navbar.navbar-fixed-top a:hover, a.btn:hover {
+     background-color: #4B694D;
+    color: white;
+}
+
+li.dropdown.open a {
+    background-color: #4E7564;
+    color: black;
+}
+
+li.dropdown.open a:hover {
+     background-color: #4B694D;
+    color: white;
+}
+
+.navbar.navbar-fixed-top a {
+     background-color: #4E7564;
+     color: white;
+}
+
+.co-bean-theme {
+     background-color: #4E7564;
+     color: white;
+}
+
+.navbar.navbar-fixed-top {
+    background-color: #4E7564;
+    padding: 5px 8vw 0 8vw;
+}
+
+.glyphicon.glyphicon-shopping-cart {
+    font-size: 26px;
+    /*color: #337ab7;*/
+    color: lightgrey;
+    margin-right: 7px;
+}
+
+.carousel-caption {
+    color: white;
+}
+.form-control:focus {
+    border-color: #9BE636;
+}
+
+#contactForm {
+    border: 2px solid #4E7564;
+    padding: 50px;
+}
+#info-section {
+    margin-top: 30px;
+    border: 2px solid #4E7564;
+    border-radius: 6px;
+    padding: 10px;
+    background-color: #BDC3B6;
+}
+#info-section input {
+    margin-bottom: 10px;
+}
+ #pmt-submit {
+    margin: 6vh auto;
+    clear: both;
+    width: 200px;
+    text-align: center;
+}
+
+
+#pmt-submit button {
+    margin-top: 20px;
+    
+}
+
+#ship-info-container {
+    border-left: 1px solid #eee;
+}
+
+#credit-card-info{
+    background-color: #B4A691;
+    border: 2px solid #4E7564;
+    border-radius: 6px;
+    padding: 10px;
+    margin-top: 30px;
+    
+}
+#cvc {
+    padding: 2px;    
+}
+
+#expiry-month {
+    width: 98px;
+    
+}
+#expiry-year{
+    width: 98px;
+    margin-left: 5px;
+}
+form button {
+    margin-left: 15px;
+}
+
+form button:hover {
+    color: #9BE636 !important;
+}
+
+.hidden {
+    visibility: hidden;
+}
