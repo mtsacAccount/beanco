@@ -10,7 +10,7 @@
             <hr>
             <h2>History</h2>
             <p>
-                In 2016, six students attending Mt. Sac community college had a group project for a web development
+                In 2016, seven students attending Mt. Sac community college had a group project for a web development
             class due that summer. Their task, was to build a fully functional e-commerce website that they would share with their fellow 
             classmates and the world wide web. When the final product was unveiled, the professor gave generous praise with A grades all around.
             A few of the students loved the project so much that they didn't want to end it, so they decided to actually look into the viability of starting 

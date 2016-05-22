@@ -58,7 +58,7 @@ function insert_coffee_order($order_details, $separate_ship) {
             }
     }
     
-    
+    // if get the id of customer from table
     $CID = $conn->insert_id;
     
     $date = date('Y-m-d');
