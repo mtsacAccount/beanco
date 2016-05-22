@@ -9,55 +9,9 @@
 <div class="container marketing">
     <h1>Payment Details</h1>
 
-<?php 
-    function showFinalCart($cart) {
-        echo "<table class=\"table table-bordered\">
-                 <tr>
-                     <th>Item</th>
-                     <th>Price</th>
-                     <th>Quantity</th>
-                     <th>Total</th>
-                 </tr>";
-        
-         //display each item as a table row
-        foreach ($cart as $product => $qty)  {
-            $item = get_product_details($product);
-            echo "<tr>";
-            
-            echo "<td>".$item['pname']." from ".$item['origin']."</td>
-                  <td>\$".number_format($item['price'], 2)."</td>
-                  <td>";
-
-            echo $qty;
-            echo "</td><td>\$".number_format($item['price']*$qty,2)."</td></tr>\n";
-        } // end of foreach loop
-        //display total row
-        echo "<tr>
-                <td>Total before shipping</td>
-                <td></td>
-                <td>".$_SESSION['items']."</td>
-                <td>\$".number_format($_SESSION['total_price'], 2)."  </td>
-              </tr>";
-        
-        $shipping = display_shipping_cost();
-      echo "<tr>
-                <td>Shipping (flat rate)</td>
-                <td></td>
-                <td></td>
-                <td>".number_format($shipping, 2)."</td>
-            </tr>
-            <tr class=\"success\">
-                <th>TOTAL INCLUDING SHIPPING</th>
-                <th>&nbsp;</th>
-                <th>&nbsp;</th>
-                <th>$ ".number_format($shipping+$_SESSION['total_price'], 2)."</th>
-            </tr>
-        </table>";
-        
-        
-}// end of showFinalCart function
-
-showFinalCart($_SESSION['cart']);
+<?php
+    // Final Cart - code is in cart.php
+    showFinalCart($_SESSION['cart']);
 ?>
 <div class="container">
     <form action='confirmation.php'  role="form" method='POST' class="form-horizontal">
