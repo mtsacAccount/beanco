@@ -12,107 +12,6 @@ TODO: echo confirmation if all forms filled out and submitted properly, else dis
 -See pg 635 (shopping_cart/purchase.php line 9)
 -See pg 636 (shopping_cart/order_fns.php, function insert_order(); )
 *********************************************************************/
-/******  function for inserting coffee order based on insert_order() ********/
-
-function insert_coffee_order($order_details, $separate_ship) {
-    // extract order_details out as variables
-    // this will come from $_POST array and get customer info variables
-    extract($order_details);
-    // set shipping address same as address
-    if (!$seperate_ship) {
-        $ship_name = $name;
-        $ship_address = $address;
-        $ship_city = $city;
-        $ship_state = $state;
-        $ship_zip = $zip;
-        $ship_country = $country;
-    }
-    
-    $conn = db_connect();
-
-    // we want to insert the order as a transaction
-    // start one by turning off autocommit
-    $conn->autocommit(FALSE);
-    
-    // look for existing customer, if not insert new customer record 
-    $query = "SELECT `CID` FROM `customers` WHERE
-            name = '".$name."' AND address = '".$address."'
-            AND city = '".$city."' AND state = '".$state."'
-            AND zip = '".$zip."' AND country = '".$country."'";
-    
-           
-    $result = $conn->query($query);
-    
-    if($result->num_rows>0) {
-        
-        $customer = $result->fetch_object();
-        $CID = $customer->CID;
-        
-    } else {
-        $query = "INSERT INTO `customers` VALUES
-            ('', '".$name."','".$address."','".$city."','".$state."','".$zip."','".$country."')";
-            $result = $conn->query($query);
-
-            if (!$result) {
-               return false;
-            }
-    }
-    
-    // if get the id of customer from table
-    $CID = $conn->insert_id;
-    
-    $date = date('Y-m-d');
-    
-    
-    $query = "INSERT INTO orders VALUES
-            ('', '".$CID."',  '".$date."', '".$_SESSION['total_price']."', '".PARTIAL."')";
-            
-    $result = $conn->query($query);
-      if (!$result) {
-        return false;
-      }
-    
-    $query = "SELECT coid FROM customer_orders WHERE
-               cid = '".$CID."' AND
-               amount > (".$_SESSION['total_price']."-.001) AND
-               amount < (".$_SESSION['total_price']."+.001) AND
-               date = '".$date."' and
-               order_status = 'PARTIAL'";
-               
-    $result = $conn->query($query);
-
-      if($result->num_rows>0) {
-        $order = $result->fetch_object();
-        $coid = $order->coid;
-      } else {
-        return false;
-      }
-      
-      
-     // insert each coffee order, need to complete this loop for appropriate table. 
-      foreach($_SESSION['cart'] as $product => $quantity) {
-        $detail = get_product_details($product);
-        $query = "delete from order_items where
-                  orderid = '".$orderid."' and isbn = '".$isbn."'";
-        $result = $conn->query($query);
-        $query = "insert into order_items values
-                  ('".$orderid."', '".$isbn."', ".$detail['price'].", $quantity)";
-        $result = $conn->query($query);
-        if(!$result) {
-          return false;
-        }
-      }
-      
-      
-      // end transaction
-      $conn->commit();
-      $conn->autocommit(TRUE);
-
-      return $orderid;
-    
-} // end of insert_coffee_order
-
-/******End of insert coffee order*******/
         // Validate method and incoming data
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             
@@ -127,12 +26,104 @@ function insert_coffee_order($order_details, $separate_ship) {
             
             
             if ($no_separate_shipping) {
+                $mysqli = new mysqli('localhost', 'root', '', 'beanco');
+                $mysqli->set_charset('utf-8');
+                
+                //Build Query
+                $query = 'INSERT INTO `customers` (name, address, city, state, zip, country )
+                        VALUES (?, ?, ?, ?, ?, ?)';
+                        
+                // Prep statement
+                $stmt = $mysqli->prepare($query);
+                
+                //Bind the variables
+                $stmt -> bind_param('ssssss', $name, $address, $city, $state, $zip, $country);
+
+                
+                // assign values to variables and strip any code
+                $name = (string) strip_tags($_POST['name']);
+                $address = (string) strip_tags($_POST['address']);
+                $city = (string) strip_tags($_POST['city']);
+                $state = (string) strip_tags($_POST['state']);
+                $zip = (string) strip_tags($_POST['zip']);
+                $country = (string) strip_tags($_POST['country']);
+                
+               // Execute the statment
+                $stmt->execute();
             
-                echo  "<div class=\"alert alert-success text-center\">
+                if ($stmt->affected_rows == 1) {
+                    echo  "<div class=\"alert alert-success text-center\">
                         <a href= \"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
                         <strong>Thank you ".$name.", your order has been processed and the product(s) will
                         be delivered to your address at " .$address." " .$city.", ".$state." 
                        </strong></div>";
+                    
+                } else {
+                    echo "<div class=\"alert alert-danger text-center\"
+                            <a href= \"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
+                            <strong>Error:</strong> " . $stmt->error . "
+                          </div";
+                }
+                
+                 // Close the statement
+                $stmt->close();
+                unset($stmt);
+                
+                $query = "SELECT `CID` FROM `customers` WHERE name = '$name'";
+                $result = $mysqli->query($query);
+                if ($result->num_rows>0) {
+                    $customer = $result->fetch_object();
+                    $cid = $customer->CID;
+                    
+                 } 
+                 else
+                 {
+                    echo "Query Failed!";
+                }
+                
+                
+                $date = date('Y-m-d');
+    
+    
+                $query = "INSERT INTO `customer_orders` (`coid`,`cid`, `order_date`, `amount`) VALUES
+                        (' ', '".$cid."',  '".$date."', '".$_SESSION['total_price']."')";
+                        
+                $order_result = $mysqli->query($query);
+                
+                
+                $query = "SELECT coid FROM customer_orders WHERE cid = $cid";
+                $coid_result = $mysqli->query($query);
+                if ($coid_result->num_rows>0) {
+                    $specific_order = $coid_result->fetch_object();
+                    $coid = $specific_order->coid;
+                   
+                 } 
+                 else
+                 {
+                    echo "Query Failed!";
+                }
+                
+                
+                // cid is available, coid is available, customers table and customer_orders are updated
+                // next step is add the order and details in order_items table
+                
+                // Insert Product in order_items table
+                foreach($_SESSION['cart'] as $product_id => $quantity) {
+                    $product_details = get_product_details($product_id);
+                    //print_r($product_details);
+                    $pname = $product_details['pname'];
+                    $price = $product_details['price'];
+                    $query = "INSERT INTO `order_items` VALUES 
+                             ('$coid','$pname', '$price', '$quantity')";
+                    $item_insert_result = $mysqli->query($query);
+                }
+                
+                $mysqli->close();
+                unset($mysqli);
+                
+               
+                
+            // case when there is separate shipping
             } else {
                 // when the user has separate shipping 
                 $ship_name = $_POST['ship_name'];
@@ -152,12 +143,14 @@ function insert_coffee_order($order_details, $separate_ship) {
             
           
         }
-
+        
 ?>
 <pre>
     <?php 
         print_r($_POST);
         print_r($_SESSION['cart']);
+        print_r($_SESSION['total_price']);
+        print_r($_SESSION['items']);
     ?>
 </pre>
 

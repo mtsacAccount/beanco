@@ -37,7 +37,7 @@ function login($username, $password) {
   // check if username is unique
   $result = $conn->query("select * from admin
                          where username='".$username."'
-                         and password = '".$password."'"); //hahaha so secure
+                         and password = sha1('".$password."')"); //username: admin, password: password123
   if (!$result) {
      return 0;
   }
@@ -61,3 +61,12 @@ if (check_admin_user()) {
 do_html_footer();*/
 
 ?>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
