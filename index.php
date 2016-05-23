@@ -15,12 +15,14 @@
         <div class="item active">
           <img class="first-slide img-responsive" src="images/coffee_cup.jpg" alt="First slide">
           <div class="container">
-            <div class="carousel-caption" id="light-pix">
+            <div class="carousel-caption">
+                <div id="light-pix">
               <h1>Our Mission</h1>
               <p>Our goal is to be the best coffee bean distributing company in the world.
     Our purpose is to enrich and serve a global audience with the finest beans found on this planet.
     We aim to deliver a superior product that is sourced responsibly and sustainably, while maximizing our shareholders as well as stakeholders value.</p>
-              <p><a class="btn btn-lg btn-primary" href="about.php" role="button">Learn More</a></p>
+                  </div><p>&nbsp;</p>
+             <!-- <p><a class="btn btn-lg btn-primary" href="about.php" role="button">Learn More</a></p> -->
             </div>
           </div>
         </div>
@@ -30,7 +32,7 @@
 		    <div class="carousel-caption">
 		    <!-- optional caption info can go here, follow format from above 'item' on previous slide-->
 		       <h3>Come get to know our family!</h3>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Who We Are</a></p>
+              <p><a class="btn btn-lg btn-primary" href="about.php" role="button">Who We Are</a></p>
 		    </div>
 		  </div>
         </div>
@@ -40,7 +42,7 @@
             <div class="carousel-caption">
               <h1>Top Quality</h1>
               <p>Taste the difference</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">See Specials</a></p>
+              <p><a class="btn btn-lg btn-primary" href="#marketing" role="button">See Specials</a></p>
             <!-- optional caption info can go here, follow format from above 'item' on previous slide-->
             </div>
           </div>
@@ -63,6 +65,7 @@
     <div class="container marketing">
 
 <!-- ***********MARKET 3 FEATURED PRODUCTS**************** -->
+<a name="marketing"></a>
 <?php 
     include('marketing.php')
 ?>

@@ -2,7 +2,16 @@
     include('header.php');
     include('navbar.php');
 
-/*******CODE FROM BOOK*********************/
+
+function check_admin_user() {
+// see if somebody is logged in and notify them if not
+
+  if (isset($_SESSION['admin_user'])) {
+    return true;
+  } else {
+    return false;
+  }
+}
 
 if (($_POST['username']) && ($_POST['password'])) {
 	// they have just tried logging in
@@ -13,7 +22,6 @@ if (($_POST['username']) && ($_POST['password'])) {
     if (login($username, $password)) {              // **********************user_auth_functions.php ** 
       // if they are in the database register the user id
       $_SESSION['admin_user'] = $username;
-      echo "LOGIN SUCCESS!"; //***********************************dummy text (temporary)
 
    } else {
       // unsuccessful login
@@ -37,7 +45,7 @@ function login($username, $password) {
   // check if username is unique
   $result = $conn->query("select * from admin
                          where username='".$username."'
-                         and password = sha1('".$password."')"); //username: admin, password: password123
+                         and password = sha1('".$password."')"); //username: superadmin, password: password123
   if (!$result) {
      return 0;
   }
@@ -50,15 +58,21 @@ function login($username, $password) {
 }
 
 
-
-
-/*do_html_header("Administration");
 if (check_admin_user()) {
-  display_admin_menu();
+  echo "<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><!--spacing for content to show below nav -->
+      <div class=\"container marketing\">
+      <h2>Admin Tools</h2>
+      <p>Welcome to the Admin Tools area.</p>
+      <ul>
+      <li><a href=\"#\">Show Products Table</a></li>
+      <li><a href=\"#\">Show Customers Table</a></li>
+      <li><a href=\"#\">Show Clients Table</a></li>
+      <li><a href=\"admin_logout.php\">Log out of Admin Tools</a></li>
+      </ul>
+      </div> ";
 } else {
   echo "<p>You are not authorized to enter the administration area.</p>";
 }
-do_html_footer();*/
 
 ?>
 

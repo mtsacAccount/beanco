@@ -131,3 +131,12 @@
     margin-top: 120px;
   }
 }
+
+#light-pix {
+    background-color: #4E7564;
+    opacity: 0.70;
+    padding: 8px;
+    border-radius: 6px;
+    color: #000;
+    font-weight: 200;
+}

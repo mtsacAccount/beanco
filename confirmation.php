@@ -110,7 +110,6 @@ TODO: echo confirmation if all forms filled out and submitted properly, else dis
                 // Insert Product in order_items table
                 foreach($_SESSION['cart'] as $product_id => $quantity) {
                     $product_details = get_product_details($product_id);
-                    //print_r($product_details);
                     $pname = $product_details['pname'];
                     $price = $product_details['price'];
                     $query = "INSERT INTO `order_items` VALUES 

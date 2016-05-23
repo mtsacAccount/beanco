@@ -36,16 +36,19 @@
         $origin = $row['origin'];
         $type = $row['type'];
         $price = $row['price'];
+        $descrip = $row['description'];
+        $photo = $row['beanpics'];
         
         echo "<div class=\"row featurette\">";
         echo "<div class=\"col-md-7 col-md-push-5\">";
         echo "<h2 class=\"featurette-heading\">".$prodname."</h2>";
         echo "<p class=\"lead\">".$origin." | "."$type"."</p>";
+        echo "<p class=\"lead\">".$descrip."</p>";
         echo "<p class=\"lead\"> \$".$price."</p>";
         echo "<p><a class=\"btn btn-default\" href=\"".'shoppingcart.php?new='.$prodID."\" role=\"button\">Add to Cart</a></p>";      
         echo "</div>";
         echo "<div class=\"col-md-5 col-md-pull-7\">";
-        echo      "<img class=\"featurette-image img-responsive center-block\" src=\"http://placehold.it/500x500\" alt=\"Generic placeholder image\">";
+        echo      "<img class=\"featurette-image img-responsive center-block\" src=\"".$photo."\" alt=\"Product photo\" width=\"500\" height=\"500\">";
         echo "</div>";
         echo "</div>";
         

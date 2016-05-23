@@ -5,7 +5,7 @@
 function get_coffee_products() {
    // query database for coffee products
    $conn = db_connect();
-   $query = "select PID, pname, origin, type from products";
+   $query = "select PID, pname, origin, type, beanpics from products";
    $result = @$conn->query($query);
    if (!$result) {
      return false;
@@ -44,9 +44,10 @@ function display_coffee_products($products_array) {
         $url = "details.php?product=".($row['PID']);
         $prodname = $row['pname'];
         $origin = $row['origin'];
+        $photo = $row['beanpics'];
         
         echo "<div class=\"col-lg-4\">
-        <img class=\"img-circle\" src=\"http://placehold.it/140x140\" alt=\"Generic placeholder image\" width=\"140\" height=\"140\">
+        <img class=\"img-circle\" src=\"".$photo."\" alt=\"Product photo\" width=\"140\" height=\"140\">
         <h2>".$prodname."</h2>
         <p>".$origin."</p>
         <p><a class=\"btn btn-default\" href=\"".$url."\" role=\"button\">View details &raquo;</a></p>
