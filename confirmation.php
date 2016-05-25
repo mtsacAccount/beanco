@@ -194,7 +194,7 @@ function setShipping($customer_id) {
                     $products_list[] = $product_details;
                     $pname = $product_details['pname'];
                     $price = $product_details['price'];
-                    $query = "INSERT INTO `order_items` VALUES 
+                    $query = "INSERT INTO `order_items_test` VALUES 
                                ('$coid','$pname', '$price', '$quantity')";
                     $item_insert_result = $mysqli->query($query);
                     

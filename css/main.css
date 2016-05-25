@@ -21,6 +21,10 @@ a.btn {
     color: white;
 }
 
+.navbar-toggle .icon-bar {
+    background-color: #FFF; /*burger menu*/
+}
+
 li.dropdown.open a {
     background-color: #4E7564;
     color: black;
@@ -49,7 +53,7 @@ li.dropdown.open a:hover {
 .glyphicon.glyphicon-shopping-cart {
     font-size: 26px;
     /*color: #337ab7;*/
-    color: lightgrey;
+    color: #FFF;
     margin-right: 7px;
 }
 
@@ -121,4 +125,43 @@ form button:hover {
 
 .hidden {
     visibility: hidden;
+}
+
+#footer {
+    background-color: #292929;
+    color: lightgrey;
+    min-height: 36vh;
+    padding: 20px;
+   
+}
+
+#copyright {
+    margin-top: 100px;
+    font-size: 1.1em;
+}
+#footer a:hover {
+    color: lightgrey;
+    text-decoration: none;
+}
+
+#footer ul li{
+  list-style-type: none;
+  display: inline-block;
+  font-size: 1.1em;
+}
+
+#footer .about_footer li {
+    display: block;
+}
+
+
+#footer #social-media i {
+    display: inline;
+}
+
+
+#footer #social-media li {
+    display: block;
+    font-size: 1.3em;
+    margin-bottom: 8px;
 }
