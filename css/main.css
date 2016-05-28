@@ -1,7 +1,7 @@
 body {
     min-height: 1000px;
     padding-top: 70px;
-    padding-bottom: 40px;
+    padding-bottom: 0px;
     color: #5a5a5a;
     
 }
@@ -71,9 +71,10 @@ li.dropdown.open a:hover {
 #info-section {
     margin-top: 30px;
     border: 2px solid #4E7564;
+    color: lightgrey;
     border-radius: 6px;
     padding: 10px;
-    background-color: #BDC3B6;
+    background-color: #4E7564;
 }
 #info-section input {
     margin-bottom: 10px;
@@ -96,7 +97,8 @@ li.dropdown.open a:hover {
 }
 
 #credit-card-info{
-    background-color: #B4A691;
+    background-color: #292929;
+    color: lightgrey;
     border: 2px solid #4E7564;
     border-radius: 6px;
     padding: 10px;
@@ -136,7 +138,7 @@ form button:hover {
 }
 
 #copyright {
-    margin-top: 100px;
+    margin-top: 131px;
     font-size: 1.1em;
 }
 #footer a:hover {
@@ -162,6 +164,6 @@ form button:hover {
 
 #footer #social-media li {
     display: block;
-    font-size: 1.3em;
+    font-size: 1.1em;
     margin-bottom: 8px;
 }

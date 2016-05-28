@@ -142,36 +142,36 @@
                 </div>
                 <div class="form-group">
                     <label for='expiration_date' class='col-md-3'>Expiration</label>
-                    <div class="col-md-5">
-                      <select class="form-control col-md-6" name="expiry-month" id="expiry-month">
-                            <option>Month</option>
-                            <option value="01">Jan </option>
-                            <option value="02">Feb</option>
-                            <option value="03">Mar</option>
-                            <option value="04">Apr</option>
-                            <option value="05">May</option>
-                            <option value="06">June</option>
-                            <option value="07">July</option>
-                            <option value="08">Aug</option>
-                            <option value="09">Sep</option>
-                            <option value="10">Oct</option>
-                            <option value="11">Nov</option>
-                            <option value="12">Dec</option>
-                      </select>
-                      <select class='form-control col-md-6' name="expiry-year" id='expiry-year'>
-                            <option value="17">2017</option>
-                            <option value="18">2018</option>
-                            <option value="19">2019</option>
-                            <option value="20">2020</option>
-                            <option value="21">2021</option>
-                            <option value="22">2022</option>
-                            <option value="23">2023</option>
-                      </select>
+                    <div class="col-md-9">
+                          <select class="form-control col-md-6" name="expiry-month" id="expiry-month">
+                                <option>Month</option>
+                                <option value="01">Jan </option>
+                                <option value="02">Feb</option>
+                                <option value="03">Mar</option>
+                                <option value="04">Apr</option>
+                                <option value="05">May</option>
+                                <option value="06">June</option>
+                                <option value="07">July</option>
+                                <option value="08">Aug</option>
+                                <option value="09">Sep</option>
+                                <option value="10">Oct</option>
+                                <option value="11">Nov</option>
+                                <option value="12">Dec</option>
+                          </select>
+                          <select class='form-control col-md-6' name="expiry-year" id='expiry-year'>
+                                <option value="17">2017</option>
+                                <option value="18">2018</option>
+                                <option value="19">2019</option>
+                                <option value="20">2020</option>
+                                <option value="21">2021</option>
+                                <option value="22">2022</option>
+                                <option value="23">2023</option>
+                          </select>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class='col-md-3'>CVC</label>
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         <input type='text' class='form-control'  placeholder='Security Code'>
                     </div>
                 </div>

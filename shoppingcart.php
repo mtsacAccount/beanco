@@ -29,8 +29,19 @@
   }
 ?>
     
+<hr class="featurette-divider">
+    </div>  <!-- /.container -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
+
+
+
 <?php  
-    include('footer.php');
-?>
+     //include('footer.php');
+ ?>
 
 <!-- if ( ($_SESSION['cart']) && (array_count_values($_SESSION['cart']) ) ) { -->

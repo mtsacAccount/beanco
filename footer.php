@@ -41,18 +41,15 @@
        </div>
        <div class="col-md-4">
            <h3>Hit Us Up On Social Media!</h3>
-           <ul id='social-media'>
-               <li><a href='http://www.facebook.com' target='_blank'><i class="fa fa-facebook-square fa-2x" aria-hidden="true">&nbsp;&nbsp;FaceBook</i></a></li>
-                <li><a href='http://www.google.com' target='_blank'><i class="fa fa-google-plus-official fa-2x" aria-hidden="true">&nbsp;&nbsp;Google+</i></a></li>
-               <li><a href='http://www.twitter.com' target='_blank'><i class="fa fa-twitter-square fa-2x" aria-hidden="true">&nbsp;&nbsp;Twitter</i></a></li>
-              <li><a href='http://www.instagram.com' target='_blank'><i class="fa fa-instagram fa-2x" aria-hidden="true">&nbsp;&nbsp;Instagram</i></a></li>
-    
-           </ul>
+               <ul id='social-media'>
+                   <li><a href='http://www.facebook.com' target='_blank'><i class="fa fa-facebook-square fa-2x" aria-hidden="true">&nbsp;&nbsp;Facebook</i></a></li>
+                   <li><a href='http://www.google.com' target='_blank'><i class="fa fa-google-plus-official fa-2x" aria-hidden="true">&nbsp;&nbsp;Google+</i></a></li>
+                   <li><a href='http://www.twitter.com' target='_blank'><i class="fa fa-twitter-square fa-2x" aria-hidden="true">&nbsp;&nbsp;Twitter</i></a></li>
+                   <li><a href='http://www.instagram.com' target='_blank'><i class="fa fa-instagram fa-2x" aria-hidden="true">&nbsp;&nbsp;Instagram</i></a></li>
+                </ul>
            <p id='copyright'>&copy; 2016 Bean Co. &middot; <a href="#">Privacy &amp; Terms</a> &middot; <a href="admin_login.php">Admin Login</a> </p>
        </div>
-       
-
-  </footer>
+    </footer>
 </div>
 
     <!-- Bootstrap core JavaScript
