@@ -25,11 +25,11 @@
               background-size: cover !important;
             }
         .jumbotron {
+            
             background-color: #4E7564;
             opacity: .70;
             color: black;
-           
-         }
+        }
          
         .dropdown-menu ul, .dropdown-menu li {
              position: relative !important;

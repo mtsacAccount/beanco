@@ -35,7 +35,7 @@
                <li>Canabru Cafe</li>
                <li>Intelligentsia Cafe</li>
                <li>Urth Caffe</li>
-               <li>Peete's Coffee</li>
+               <li>Peet's Coffee</li>
                <li>Anything but Starbucks</li>
            </ul>
        </div>

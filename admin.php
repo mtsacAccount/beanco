@@ -59,27 +59,7 @@ function login($username, $password) {
 
 
 if (check_admin_user()) {
-  echo "<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><!--spacing for content to show below nav -->
-      <div class=\"container marketing\">
-            <div class=\"adminleft col-lg-3\">
-            <h3>Menu</h3>
-              <ul>
-              <li><a href=\"#\">Show Products Table</a></li>
-              <li><a href=\"#\">Show Customers Table</a></li>
-              <li><a href=\"#\">Show Clients Table</a></li>
-              <li>&nbsp;</li>
-              <li><a href=\"admin_logout.php\">Log out of Admin Tools</a></li>
-              </ul>
-            </div>
-      
-      
-            <div class=\"adminright col-lg-9\">
-              <h2>Admin Tools</h2>
-              <p>Welcome to the Admin Tools area.</p>
-            </div>  
-      
-
-      </div> ";
+        include('admin_partial.php');
 } else {
   echo "<p>You are not authorized to enter the administration area.</p>";
 }
