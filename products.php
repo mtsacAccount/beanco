@@ -14,11 +14,13 @@ function display_products($products_array) {
         $prodname = $row['pname'];
         $origin = $row['origin'];
         $photo = $row['beanpics'];
+        $price = $row['price'];
         
         echo "<div class=\"col-lg-4\">
             <img class=\"img-circle\" src=\"".$photo."\" alt=\"Product Photo\" width=\"140\" height=\"140\">
             <h3>".$prodname."</h3>
             <p>".$origin."</p>
+            <h4>$".$price."</h4>
             <p><a class=\"btn btn-default\" href=\"".$url."\" role=\"button\">View details &raquo;</a></p>
             </div>";
     }
@@ -76,7 +78,7 @@ function get_origin_name($region) {
 function get_all() {
      //query db for type
     $conn = db_connect();
-    $query = "select PID, pname, origin, type, beanpics from products";
+    $query = "select PID, pname, origin, type, price, beanpics from products";
     $result = @$conn->query($query);
     
     if(!$result) {

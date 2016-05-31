@@ -39,7 +39,7 @@
                       <a href= \"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
                       <strong>Error:</strong> " . $stmt->error . "<br />
                       <button class='btn btn-primary'><a href='admin_customers.php'>Go Back to Admin Customers </a></button>
-                   </div";
+                   </div>";
         }
         
          // Close the statement

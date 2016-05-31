@@ -5,7 +5,7 @@
 function get_coffee_products() {
    // query database for coffee products
    $conn = db_connect();
-   $query = "select PID, pname, origin, type, beanpics from products";
+   $query = "select PID, pname, origin, type, price, beanpics from products";
    $result = @$conn->query($query);
    if (!$result) {
      return false;
@@ -45,11 +45,13 @@ function display_coffee_products($products_array) {
         $prodname = $row['pname'];
         $origin = $row['origin'];
         $photo = $row['beanpics'];
+        $price = $row['price'];
         
         echo "<div class=\"col-lg-4\">
         <img class=\"img-circle\" src=\"".$photo."\" alt=\"Product photo\" width=\"140\" height=\"140\">
-        <h2>".$prodname."</h2>
+        <h3>".$prodname."</h3>
         <p>".$origin."</p>
+        <h4>$".$price."</h4>
         <p><a class=\"btn btn-default\" href=\"".$url."\" role=\"button\">View details &raquo;</a></p>
         </div>";
     }

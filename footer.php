@@ -24,11 +24,11 @@
        <div class="col-md-4">
            <ul class='about_footer col-md-6'>
                <li><h3>About Us</h3></li>
-               <li>History</li>
-               <li>Mission Statement</li>
-               <li>Our Family</li>
+               <li><a href='about.php' style='color: lightgrey;'>History</a></li>
+               <li><a href='about.php' style='color: lightgrey;'>Mission Statement</a></li>
+               <li><a href='about.php' style='color: lightgrey;'>Our Family</a></li>
                <li>Careers</li>
-               <li>Contact</li>
+               <li><a href='contact_us.php' style='color: lightgrey;'>Contact Us</a></li>
            </ul>
            <ul class='about_footer col-md-6'>
                <li><h3>Partners</h3></li>
