@@ -138,7 +138,7 @@ form button:hover {
 }
 
 #copyright {
-    margin-top: 131px;
+    margin-top: 177px;
     font-size: 1.1em;
 }
 #footer a:hover {
@@ -166,6 +166,31 @@ form button:hover {
     display: block;
     font-size: 1.1em;
     margin-bottom: 8px;
+}
+
+.fa.fa-facebook-square.fa-2x {
+    color: rgb(65, 93, 147);
+}
+
+.fa.fa-google-plus-official.fa-2x {
+    color: rgb(215, 86, 73);
+}
+
+
+.fa.fa-twitter-square.fa-2x {
+    color: rgb(75,164,235);
+}
+
+.fa.fa-instagram.fa-2x {
+    color: rgb(192, 75, 140);
+}
+
+.fb, .gp, .tw, .in {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.fa-2x {
+    font-size: 14pt;
 }
 
 #light-pix {
