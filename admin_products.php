@@ -1,39 +1,39 @@
 <?php 
-// connect to database
-function db_connect() {
-   // Updated db_connect() to point to the beanco db, using an admin account and password. Yay security!
-   $result = new mysqli('localhost', 'beancoadmin', 'supersecurepassword', 'beanco'); 
-       if (!$result) {
-          return false;
-       }
-   $result->autocommit(TRUE);
-   return $result;
-}
-    
-function marketing_result_to_array($result) {
-   $res_array = array();
-   for ($count=0; $row = $result->fetch_assoc(); $count++) {
-     $res_array[$count] = $row;
-   }
-
-   return $res_array;
-}     
-    
-function get_coffee_products() {
-       // query database for coffee products
-       $conn = db_connect();
-       $query = "select PID, pname, origin, type, price, beanpics, description from products";
-       $result = @$conn->query($query);
-       if (!$result) {
-         return false;
-       }
-       $num_cats = @$result->num_rows;
-       if ($num_cats == 0) {
-          return false;
-       }
-       $result = marketing_result_to_array($result);
+    // connect to database
+    function db_connect() {
+       // Updated db_connect() to point to the beanco db, using an admin account and password. Yay security!
+       $result = new mysqli('localhost', 'beancoadmin', 'supersecurepassword', 'beanco'); 
+           if (!$result) {
+              return false;
+           }
+       $result->autocommit(TRUE);
        return $result;
-}    
+    }
+        
+    function marketing_result_to_array($result) {
+       $res_array = array();
+       for ($count=0; $row = $result->fetch_assoc(); $count++) {
+         $res_array[$count] = $row;
+       }
+    
+       return $res_array;
+    }     
+        
+    function get_coffee_products() {
+           // query database for coffee products
+           $conn = db_connect();
+           $query = "select PID, pname, origin, type, price, beanpics, description from products";
+           $result = @$conn->query($query);
+           if (!$result) {
+             return false;
+           }
+           $num_cats = @$result->num_rows;
+           if ($num_cats == 0) {
+              return false;
+           }
+           $result = marketing_result_to_array($result);
+           return $result;
+    }    
 
 ?>
 
@@ -48,12 +48,12 @@ function get_coffee_products() {
              }
              button a {
                  text-decoration: none;
-                 color: white;
+                 color: black;
              }
              
              button a:hover {
                  text-decoration: none;
-                 color: white;
+                 color: black;
              }
          </style>
     </head>
@@ -87,16 +87,22 @@ function get_coffee_products() {
                                     <td class=\"price\">".$product['price']."</td>
                                     <td class=\"beanpics\">".$product['beanpics']."</td>
                                     <td class=\"description\">".$product['description']."</td>
-                                    <td><button type=\"button\">edit</button></td>
                                     <td>
-                                        <button type=\"button\"><a href=\"admin_delete_product.php?pid=".$pid."\" 
-                                            onclick=\"return confirm('Are you sure u want to delete this customer?);\">
-                                            delete
+                                        <button type=\"button\">
+                                            <a href=\"admin_edit_product.php?pid=".$pid."\">
+                                                edit
+                                            </a>
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <button type=\"button\">
+                                            <a href=\"admin_delete_product.php?pid=".$pid."\">
+                                                delete
                                             </a>
                                         </button>
                                     </td>
                                    </tr> ";
-                                }
+                            }
                       
                       ?>
                   </tbody>
@@ -104,7 +110,11 @@ function get_coffee_products() {
         </div>
         <div class="row">
             <div class="col-lg-offset-5 col-lg-2 text-center">
-                  <button class='btn btn-success btn-lg'><a href='admin_add_product.php'>Add New Product</a></button>
+                  <button class='btn btn-success btn-lg'>
+                      <a href='admin_add_product.php'>
+                          Add New Product
+                      </a>
+                  </button>
              </div>
          </div>
     </body>

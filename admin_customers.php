@@ -84,12 +84,14 @@
                                     <td class=\"price\">".$customer['state']."</td>
                                     <td class=\"beanpics\">".$customer['zip']."</td>
                                     <td class=\"description\">".$customer['country']."</td>
-                                    <td><button type=\"button\">edit</button></td>
                                     <td>
-                                        <button type=\"button\"><a href=\"admin_delete_customer.php?cid=".$cid."\" 
-                                            onclick=\"return confirm('Are you sure u want to delete this customer?);\">
-                                            delete
-                                            </a>
+                                        <button type=\"button\">
+                                            <a href=\"admin_edit_customer.php?cid=".$cid."\">edit</a>
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <button type=\"button\">
+                                            <a href=\"admin_delete_customer.php?cid=".$cid."\">delete</a>
                                         </button>
                                     </td>
                               </tr> ";
